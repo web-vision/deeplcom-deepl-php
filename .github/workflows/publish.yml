@@ -70,7 +70,9 @@ jobs:
                 vendor/symfony \
                 vendor/autoload.php \
                 vendor/bin \
-              && cat <<< $(jq --indent 4 '."autoload"."psr-4" += {"DeepL\\": "vendor/deeplcom/deepl-php/src", "Http\\Discovery\\": "vendor/php-http/discovery/src"}' composer.json.orig) > composer.json.pretty \
+              && mv vendor contrib \
+              && cat <<< $(jq --indent 4 '."autoload"."psr-4" += {"DeepL\\": "contrib/deeplcom/deepl-php/src"}' composer.json.orig) > composer.json.pretty \
+              && cat <<< $(jq --indent 4 '."autoload"."psr-4" += {"Http\\Discovery\\": "contrib/php-http/discovery/src"}' composer.json.pretty) > composer.json.pretty \
               && rm -rf composer.json \
               && mv composer.json.pretty composer.json \
               && rm -rf composer.json.orig
@@ -82,8 +84,7 @@ jobs:
       - name: Create local TER package upload artifact
         shell: bash
         run: |
-          TYPO3_EXCLUDE_FROM_PACKAGING="Build/tailor/ExcludeFromPackaging.php" \
-            php ~/.composer/vendor/bin/tailor create-artefact ${{ env.version }} ${{ env.DETECTED_EXTENSION_KEY }}
+          php ~/.composer/vendor/bin/tailor create-artefact ${{ env.version }} ${{ env.DETECTED_EXTENSION_KEY }}
 
       # Note that when release already exists for tag, only files will be uploaded and lets this acting as a
       # fallback to ensure that a real GitHub release is created for the tag along with extension artifacts.
