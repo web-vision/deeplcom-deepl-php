@@ -65,7 +65,7 @@
 					"php-http/discovery": ""
 				}
 			},
-			"version": "1.16.1"
+			"version": "1.17.0"
 		},
 		"branch-alias": {
 			"dev-main": "1.x.x-dev"

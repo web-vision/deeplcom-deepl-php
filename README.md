@@ -58,7 +58,7 @@ echo '>> Prepare release pull-request' ; \
   git checkout ${RELEASE_BRANCH} && \
   git pull --rebase && \
   tailor set-version ${RELEASE_VERSION} && \
-  composer config "extra"."typo3/cms"."version" '${{ env.version }}' && \
+  composer config "extra"."typo3/cms"."version" "${RELEASE_VERSION}" && \
   echo "${RELEASE_VERSION}" > VERSION && \
   git add . && \
   git commit -m "[RELEASE] ${RELEASE_VERSION}" && \
