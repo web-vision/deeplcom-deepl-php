@@ -75,7 +75,9 @@ jobs:
               && cat <<< $(jq --indent 4 '."autoload"."psr-4" += {"Http\\Discovery\\": "contrib/php-http/discovery/src"}' composer.json.pretty) > composer.json.pretty \
               && rm -rf composer.json \
               && mv composer.json.pretty composer.json \
-              && rm -rf composer.json.orig
+              && rm -rf composer.json.orig \
+              && composer config "version" '${{ env.version }}' \
+              && composer config "extra"."typo3/cms"."version" '${{ env.version }}'
 
       - name: Install tailor
         run: composer global require typo3/tailor --prefer-dist --no-progress --no-suggest

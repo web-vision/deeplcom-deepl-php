@@ -49,6 +49,7 @@
 		"optimize-autoloader": true,
 		"sort-packages": true,
 		"allow-plugins": {
+			"php-http/discovery": true,
 			"typo3/class-alias-loader": true,
 			"typo3/cms-composer-installers": true
 		}
@@ -57,7 +58,14 @@
 		"typo3/cms": {
 			"extension-key": "deeplcom_deeplphp",
 			"web-dir": ".Build/Web",
-			"app-dir": ".Build"
+			"app-dir": ".Build",
+			"Package": {
+				"providesPackages": {
+					"deeplcom/deepl-php": "",
+					"php-http/discovery": ""
+				}
+			},
+			"version": "1.16.1"
 		},
 		"branch-alias": {
 			"dev-main": "1.x.x-dev"
