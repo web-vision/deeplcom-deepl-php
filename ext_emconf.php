@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'DeepL Client Library (deeplcom)',
-    'description' => '',
+    'description' => 'Provides the official DeepL PHP API Client composer package',
     'category' => 'backend',
     'author' => 'web-vision GmbH Team',
     'author_company' => 'web-vision GmbH',

@@ -1,7 +1,7 @@
 {
 	"name": "web-vision/deeplcom-deepl-php",
 	"type": "typo3-cms-extension",
-	"description": "",
+	"description": "DeepL Client Library (deeplcom) - Provides the official DeepL PHP API Client composer package",
 	"license": ["GPL-2.0-or-later"],
 	"homepage": "https://www.web-vision.de/en/automated-translations-with-typo3-and-deepl.html",
 	"minimum-stability": "dev",
