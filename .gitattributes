@@ -6,6 +6,7 @@
 /Build/ export-ignore
 /Tests/ export-ignore
 /packages/ export-ignore
+/contrib/Libraries/ export-ignore
 
 # Files
 .editorconfig export-ignore

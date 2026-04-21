@@ -49,38 +49,11 @@ jobs:
           extensions: intl, mbstring, json, zip, curl
           tools: composer:v2
 
-      - name: Prepare vendor folder and autoload configuration for TER upload
-        shell: bash
-        run: |
-          rm -rf vendor composer.lock composer.json.orig composer.json.pretty \
-            && mv composer.json composer.json.orig \
-              && composer init -n \
-                --type=project \
-                --license='GPL-2.0-or-later' \
-                --name=release/draft \
-                --description empty \
-                --author='release' \
-              && composer config allow-plugins.php-http/discovery true \
-              && composer require "deeplcom/deepl-php":"$( cat composer.json.orig | jq -r '.require."deeplcom/deepl-php"' )" \
-              && rm -rf composer.lock \
-                vendor/composer \
-                vendor/nyholm \
-                vendor/php-http/multipart-stream-builder \
-                vendor/psr \
-                vendor/symfony \
-                vendor/autoload.php \
-                vendor/bin \
-              && mv vendor contrib \
-              && cat <<< $(jq --indent 4 '."autoload"."psr-4" += {"DeepL\\": "contrib/deeplcom/deepl-php/src"}' composer.json.orig) > composer.json.pretty \
-              && cat <<< $(jq --indent 4 '."autoload"."psr-4" += {"Http\\Discovery\\": "contrib/php-http/discovery/src"}' composer.json.pretty) > composer.json.pretty \
-              && rm -rf composer.json \
-              && mv composer.json.pretty composer.json \
-              && rm -rf composer.json.orig \
-              && composer config "version" "${{ env.version }}" \
-              && composer config "extra"."typo3/cms"."version" "${{ env.version }}"
-
       - name: Install tailor
         run: composer global require typo3/tailor --prefer-dist --no-progress --no-suggest
+
+      - name: Install contrib libraries
+        run: composer install -d contrib
 
       # Note that step will fail when `env.version` does not match the `ext_emconf.php` version.
       - name: Create local TER package upload artifact

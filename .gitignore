@@ -3,7 +3,7 @@
 .Build
 !.Build/Web/.gitkeep
 .ddev/docker-compose.tempfs.yaml
-composer.lock
+/composer.lock
 composer.json.testing
 composer.json.orig
 composer.json.pretty
