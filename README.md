@@ -85,7 +85,7 @@ echo '>> Prepare release pull-request' ; \
   git commit -m "[RELEASE] ${RELEASE_VERSION}" && \
   git tag ${RELEASE_VERSION} && \
   git push && \
-  git push --tags \
+  git push --tags && \
   tailor set-version ${DEV_VERSION} && \
   composer config "extra"."typo3/cms"."version" "${DEV_VERSION}-dev" && \
   echo "${DEV_VERSION}-dev" > VERSION && \
