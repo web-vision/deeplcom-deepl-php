@@ -1,0 +1,32 @@
+{
+	"name": "web-vision/deeplcom-deepl-php-lib",
+	"license": "GPL-2.0-or-later",
+	"config": {
+		"vendor-dir": "Libraries",
+		"preferred-install": {
+			"*": "dist"
+		},
+		"classmap-authoritative": true,
+		"platform": {
+			"php": "8.1.0"
+		},
+		"allow-plugins": {
+			"php-http/discovery": false
+		}
+	},
+	"require": {
+		"php": "^8.1 || ^8.2 || ^8.3 || ^8.4 || ^8.5",
+		"deeplcom/deepl-php": "1.17.0"
+	},
+	"replace": {
+		"psr/log": "*",
+		"psr/http-message": "*",
+		"psr/http-client": "*",
+		"php-http/multipart-stream-builder": "*"
+	},
+	"provide": {
+		"psr/http-client-implementation": "1.0",
+		"psr/http-factory-implementation": "1.0",
+		"psr/http-message-implementation": "1.0"
+	}
+}

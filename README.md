@@ -35,6 +35,24 @@ We prefer composer installation:
 composer require 'web-vision/deeplcom-deepl-php':'1.*.*@dev'
 ```
 
+## Set `deeplcom/deepl-php` version
+
+> [!IMPORTANT]
+> It's important to use these commands to have the bundled contrib folder
+> providing the correct version, otherwise wrong version would be shipped
+> and used in classic mode instances.
+
+```bash
+PACKAGE_VERSION='1.18.0' ; \
+  composer require "deeplcom/deepl-php:${PACKAGE_VERSION}" && \
+  composer require -d contrib "deeplcom/deepl-php:${PACKAGE_VERSION}" && \
+  composer config "extra"."typo3/cms"."version" "${PACKAGE_VERSION}-dev" && \
+  echo "${PACKAGE_VERSION}-dev" > VERSION && \
+  sed -i "s/^  PACKAGE_VERSION.*/  PACKAGE_VERSION=\"${DEV_VERSION}\"/" README.md && \
+  git add . && \
+  git commit -m "[TASK] Set 'deeplcom/deepl-php' to '${PACKAGE_VERSION}'"
+```
+
 ## Create a release (maintainers only)
 
 Prerequisites:
@@ -51,7 +69,8 @@ Prerequisites:
 ```shell
 echo '>> Prepare release pull-request' ; \
   RELEASE_BRANCH='main' ; \
-  RELEASE_VERSION='1.0.0' ; \
+  RELEASE_VERSION='1.18.0' ; \
+  DEV_VERSION='1.18.1' ; \
   git checkout main && \
   git fetch --all && \
   git pull --rebase && \
@@ -60,9 +79,17 @@ echo '>> Prepare release pull-request' ; \
   tailor set-version ${RELEASE_VERSION} && \
   composer config "extra"."typo3/cms"."version" "${RELEASE_VERSION}" && \
   echo "${RELEASE_VERSION}" > VERSION && \
+  sed -i "s/^  RELEASE_VERSION.*/  RELEASE_VERSION=\"${RELEASE_VERSION}\"/" README.md && \
+  sed -i "s/^  DEV_VERSION.*/  DEV_VERSION=\"${DEV_VERSION}\"/" README.md && \
   git add . && \
   git commit -m "[RELEASE] ${RELEASE_VERSION}" && \
   git tag ${RELEASE_VERSION} && \
   git push && \
-  git push --tags
+  git push --tags \
+  tailor set-version ${DEV_VERSION} && \
+  composer config "extra"."typo3/cms"."version" "${DEV_VERSION}-dev" && \
+  echo "${DEV_VERSION}-dev" > VERSION && \
+  git add . && \
+  git commit -m "[TASK] Set dev version ${DEV_VERSION}-dev" && \
+  git push
 ```

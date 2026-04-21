@@ -61,8 +61,7 @@
 			"app-dir": ".Build",
 			"Package": {
 				"providesPackages": {
-					"deeplcom/deepl-php": "",
-					"php-http/discovery": ""
+					"deeplcom/deepl-php": "contrib/Libraries"
 				}
 			},
 			"version": "1.17.1"
