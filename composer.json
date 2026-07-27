@@ -64,7 +64,7 @@
 					"deeplcom/deepl-php": "contrib/Libraries"
 				}
 			},
-			"version": "1.18.1-dev"
+			"version": "1.19.0-dev"
 		},
 		"branch-alias": {
 			"dev-main": "1.x.x-dev"
@@ -74,7 +74,7 @@
 		"php": "^8.1 || ^8.2 || ^8.3 || ^8.4 || ^8.5",
 		"ext-curl": "*",
 		"ext-json": "*",
-		"deeplcom/deepl-php": "1.18.0",
+		"deeplcom/deepl-php": "1.19.0",
 		"typo3/cms-backend": "^12.4.2 || ^13.4 || 14.2.0@dev || 14.3.*@dev",
 		"typo3/cms-core": "^12.4.2 || ^13.4 || 14.2.0@dev || 14.3.*@dev",
 		"typo3/cms-fluid": "^12.4.2 || ^13.4 || 14.2.0@dev || 14.3.*@dev"
