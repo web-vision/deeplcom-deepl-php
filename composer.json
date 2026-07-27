@@ -64,7 +64,7 @@
 					"deeplcom/deepl-php": "contrib/Libraries"
 				}
 			},
-			"version": "1.19.0-dev"
+			"version": "1.19.0"
 		},
 		"branch-alias": {
 			"dev-main": "1.x.x-dev"
