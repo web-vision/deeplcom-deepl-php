@@ -43,7 +43,7 @@ composer require 'web-vision/deeplcom-deepl-php':'1.*.*@dev'
 > and used in classic mode instances.
 
 ```bash
-PACKAGE_VERSION='1.18.0' ; \
+PACKAGE_VERSION='1.19.0' ; \
   composer require "deeplcom/deepl-php:${PACKAGE_VERSION}" && \
   composer require -d contrib "deeplcom/deepl-php:${PACKAGE_VERSION}" && \
   composer config "extra"."typo3/cms"."version" "${PACKAGE_VERSION}-dev" && \
