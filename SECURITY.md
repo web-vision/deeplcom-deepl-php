@@ -12,12 +12,9 @@ Security updates are provided for the following versions. Versions marked
 unsupported no longer receive security fixes; please upgrade before
 reporting an issue against them.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x     | :white_check_mark: |
-| < 1.19  | :x:                |
-
-Planned end of support for this product: **30 June 2029 (end of regular TYPO3 14 LTS support)**.
+| Version | Supported          | End of Support |
+|---------|--------------------|----------------|
+| 1.x     | :white_check_mark: | 2029-06-30     |
 
 ## Reporting a Vulnerability
 
@@ -31,7 +28,7 @@ open a public GitHub/GitLab issue.
 ### What to expect
 
 | Step                                | Timeframe                                                              |
-| ----------------------------------- | ---------------------------------------------------------------------- |
+|-------------------------------------|------------------------------------------------------------------------|
 | Acknowledgement of your report      | within 1 business day (typically much faster)                          |
 | Status updates                      | at least every 7 days until resolved                                   |
 | Fix / mitigation, based on severity | Critical/High: as fast as possible; Medium/Low: next scheduled release |
@@ -56,8 +53,11 @@ researchers who:
 
 ## Scope
 
-In scope: the source code, released versions, and official distribution
-channels of "web-vision/deeplcom-deepl-php" (e.g. TER / Packagist).
+In scope: the source code, released versions, and the official distribution
+channels of "web-vision/deeplcom-deepl-php":
+
+- TYPO3 Extension Repository (TER) — https://extensions.typo3.org/extension/deeplcom_deeplphp
+- Packagist — https://packagist.org/packages/web-vision/deeplcom-deepl-php
 
 Out of scope: third-party dependencies (please report those upstream, but
 feel free to let us know so we can track and update them), and
